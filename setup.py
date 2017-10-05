@@ -15,7 +15,9 @@ setup(
     license="MIT",
     keywords="iron mud console game",
     url="https://github.com/esentino/IronMud",
-    packages=['tests'],
+    packages=['ironmud', 'tests'],
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest'],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Environment :: Console"
