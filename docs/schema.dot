@@ -1,0 +1,43 @@
+digraph G{
+	mM [label="Main Menu"];
+	gC [label="Generate Character"];
+	gW [label="Generate World"];
+	nG [label="New Game"];
+	lG [label="Load Game"];
+	qG [label="Quit Game"];
+	lC [label="Load Character"];
+	lW [label="Load World"];
+	sG [label="Start Game"];
+	svG [label="Save Game"];
+	st [label="Make Step"];
+	subgraph cluster_0 {
+		style=filled;
+		color=red;
+		node [style=filled,color=white];
+		lG -> lC -> lW;
+		label = "Load game process";
+	}
+	subgraph cluster_1 {
+		style=filled;
+		color=lightblue;
+		node [style=filled,color=white];
+		nG -> gC -> gW;
+		label = "New game process";
+	}
+	gC -> qG;
+	mM -> nG;
+	mM -> lG;
+	mM -> exit;
+	gW -> qG;
+	qG -> mM;
+	gW -> sG;
+	lW -> sG;
+	sG -> qG;
+	sG -> svG;
+	st -> st;
+	sG -> st;
+	svG -> st;
+	nG -> qG;
+	st -> qG;
+	st -> svG;
+}
